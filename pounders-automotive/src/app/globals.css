@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+
+:root {
+  --background: #ffffff;
+}
+header {
+text-align: left;
+color: black;
+font-style: italic;
+font-size: 1.5rem;
+background-color: white;
+height: 4rem;
+padding: 20px 20px;
+align-items: center;
+justify-content: space-between;
+display: flex;
+
+}
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  border: 3px solid black;
+  height: 80px;
+  background-color: #bfdbfe;
+}
+.header-button {
+margin-left: auto;
+display: flex;
+gap: 1rem;
+padding: 4px 8px;
+font-size: 0.9rem;
+
+}
