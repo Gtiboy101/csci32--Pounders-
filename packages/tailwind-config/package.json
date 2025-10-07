@@ -1,0 +1,12 @@
+{
+  "name": "@repo/tailwind-config",
+  "version": "0.0.0",
+  "private": true,
+  "main": "postcss.config.js",
+  "files": [
+    "postcss.config.js",
+    "shared-styles.css"
+  ],
+  "dependencies": {},
+  "devDependencies": {}
+}
