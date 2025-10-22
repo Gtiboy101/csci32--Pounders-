@@ -1,51 +1,40 @@
-"use client";
+'use client'
 
-import React from "react";
-import { ReactNode } from "react";
-import { Size } from "./size";
-import { Variant } from "./variant";
+import { ReactNode } from 'react'
+import { getSizeStyles, Size } from './size'
+import { getVariantBackgroundStyles, getVariantButtonTextStyles, getVariantOutlineStyles, Variant } from './variant'
+import { getCommonButtonStyles } from './tokens'
 
 interface ButtonProps {
-  children: ReactNode;
-  className?: string;
-  onClick?: () => void;
-  href?: string;
-  size?: Size;
-  variant?: Variant;
+  children: ReactNode
+  className?: string
+  href?: string
+  onClick?: () => void
+  size?: Size
+  variant?: Variant
 }
-
-const sizeClasses = {
-  [Size.SMALL]: "px-2 py-1 text-sm",
-  [Size.MEDIUM]: "px-4 py-2 text-base",
-  [Size.LARGE]: "px-6 py-3 text-lg",
-};
-
-const variantClasses = {
-  [Variant.PRIMARY]: "bg-blue-300 text-white hover:bg-blue-400",
-  [Variant.SECONDARY]: "bg-blue-200 text-white hover:bg-blue-300",
-  [Variant.TERTIARY]: "bg-transparent text-blue-300 hover:bg-blue-100",
-};
 
 export const Button = ({
   children,
-  className = "",
-  onClick,
+  className,
   href,
+  onClick,
   size = Size.MEDIUM,
   variant = Variant.PRIMARY,
 }: ButtonProps) => {
-  const baseClasses = `rounded shadow focus:outline-none border transition cursor-pointer ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
-
-  if (href) {
-    return (
-      <a href={href} className={baseClasses}>
-        {children}
-      </a>
-    );
-  }
-  return (
-    <button type="button" className={baseClasses} onClick={onClick}>
+  const sizeCssClasses = getSizeStyles(size)
+  const variantBackgroundClasses = getVariantBackgroundStyles(variant)
+  const variantTextClasses = getVariantButtonTextStyles(variant)
+  const variantOutlineClasses = getVariantOutlineStyles(variant)
+  const commonCssClasses = getCommonButtonStyles()
+  const completedCssClasses = `${sizeCssClasses} ${variantBackgroundClasses} ${variantTextClasses} ${variantOutlineClasses} ${commonCssClasses} ${className}`
+  return href ? (
+    <a href={href} className={completedCssClasses}>
+      {children}
+    </a>
+  ) : (
+    <button className={completedCssClasses} onClick={onClick}>
       {children}
     </button>
-  );
-};
+  )
+}
