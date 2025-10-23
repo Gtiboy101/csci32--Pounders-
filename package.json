@@ -28,5 +28,19 @@
     "bcryptjs": "^3.0.2",
     "reflect-metadata": "^0.2.2",
     "type-graphql": "^2.0.0-rc.2"
-  }
+  },
+  "version": "1.0.0",
+  "description": "This Turborepo starter is maintained by the Turborepo core team.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gtiboy101/csci32--Pounders-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gtiboy101/csci32--Pounders-/issues"
+  },
+  "homepage": "https://github.com/Gtiboy101/csci32--Pounders-#readme"
 }
