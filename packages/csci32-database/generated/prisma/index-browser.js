@@ -124,7 +124,23 @@ exports.Prisma.UserScalarFieldEnum = {
   user_id: 'user_id',
   name: 'name',
   email: 'email',
-  emailVerified: 'emailVerified'
+  passwordHash: 'passwordHash',
+  role_id: 'role_id'
+};
+
+exports.Prisma.RoleScalarFieldEnum = {
+  role_id: 'role_id',
+  name: 'name'
+};
+
+exports.Prisma.PermissionScalarFieldEnum = {
+  permission_id: 'permission_id',
+  name: 'name'
+};
+
+exports.Prisma.RolePermissionScalarFieldEnum = {
+  role_id: 'role_id',
+  permission_id: 'permission_id'
 };
 
 exports.Prisma.SortOrder = {
@@ -141,10 +157,26 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.RoleName = exports.$Enums.RoleName = {
+  Admin: 'Admin',
+  User: 'User',
+  Moderator: 'Moderator'
+};
 
+exports.PermissionName = exports.$Enums.PermissionName = {
+  UserRead: 'UserRead',
+  UserWrite: 'UserWrite',
+  UserDelete: 'UserDelete',
+  RoleRead: 'RoleRead',
+  RoleWrite: 'RoleWrite',
+  RoleDelete: 'RoleDelete'
+};
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Role: 'Role',
+  Permission: 'Permission',
+  RolePermission: 'RolePermission'
 };
 
 /**

@@ -96,7 +96,23 @@ exports.Prisma.UserScalarFieldEnum = {
   user_id: 'user_id',
   name: 'name',
   email: 'email',
-  emailVerified: 'emailVerified'
+  passwordHash: 'passwordHash',
+  role_id: 'role_id'
+};
+
+exports.Prisma.RoleScalarFieldEnum = {
+  role_id: 'role_id',
+  name: 'name'
+};
+
+exports.Prisma.PermissionScalarFieldEnum = {
+  permission_id: 'permission_id',
+  name: 'name'
+};
+
+exports.Prisma.RolePermissionScalarFieldEnum = {
+  role_id: 'role_id',
+  permission_id: 'permission_id'
 };
 
 exports.Prisma.SortOrder = {
@@ -113,10 +129,26 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.RoleName = exports.$Enums.RoleName = {
+  Admin: 'Admin',
+  User: 'User',
+  Moderator: 'Moderator'
+};
 
+exports.PermissionName = exports.$Enums.PermissionName = {
+  UserRead: 'UserRead',
+  UserWrite: 'UserWrite',
+  UserDelete: 'UserDelete',
+  RoleRead: 'RoleRead',
+  RoleWrite: 'RoleWrite',
+  RoleDelete: 'RoleDelete'
+};
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Role: 'Role',
+  Permission: 'Permission',
+  RolePermission: 'RolePermission'
 };
 /**
  * Create the Client
@@ -157,7 +189,6 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -166,13 +197,13 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  user_id       String    @id @default(cuid())\n  name          String?\n  email         String?   @unique\n  emailVerified DateTime?\n}\n",
-  "inlineSchemaHash": "81387d46fedb757d6e6852af9eea33f57045cbd28453ef5aad3162a24ef96d28",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nenum RoleName {\n  Admin\n  User\n  Moderator\n}\n\nenum PermissionName {\n  UserRead\n  UserWrite\n  UserDelete\n  RoleRead\n  RoleWrite\n  RoleDelete\n}\n\nmodel User {\n  user_id      String  @id @default(cuid())\n  name         String?\n  email        String? @unique\n  passwordHash String?\n  role_id      String?\n  role         Role?   @relation(fields: [role_id], references: [role_id])\n}\n\nmodel Role {\n  role_id          String           @id @default(cuid())\n  name             RoleName         @unique\n  users            User[]\n  role_permissions RolePermission[]\n}\n\nmodel Permission {\n  permission_id    String           @id @default(cuid())\n  name             PermissionName   @unique\n  role_permissions RolePermission[]\n}\n\nmodel RolePermission {\n  role_id       String\n  permission_id String\n  role          Role       @relation(fields: [role_id], references: [role_id])\n  permission    Permission @relation(fields: [permission_id], references: [permission_id])\n\n  @@id([role_id, permission_id])\n}\n",
+  "inlineSchemaHash": "fa29c2ec917e709820c65baedbd9aa0fd05cd1fd0e5355a5569dc54ee1d5b63f",
   "copyEngine": true
 }
 config.dirname = '/'
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"user_id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"emailVerified\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"user_id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"passwordHash\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role_id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"object\",\"type\":\"Role\",\"relationName\":\"RoleToUser\"}],\"dbName\":null},\"Role\":{\"fields\":[{\"name\":\"role_id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"enum\",\"type\":\"RoleName\"},{\"name\":\"users\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"RoleToUser\"},{\"name\":\"role_permissions\",\"kind\":\"object\",\"type\":\"RolePermission\",\"relationName\":\"RoleToRolePermission\"}],\"dbName\":null},\"Permission\":{\"fields\":[{\"name\":\"permission_id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"enum\",\"type\":\"PermissionName\"},{\"name\":\"role_permissions\",\"kind\":\"object\",\"type\":\"RolePermission\",\"relationName\":\"PermissionToRolePermission\"}],\"dbName\":null},\"RolePermission\":{\"fields\":[{\"name\":\"role_id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"permission_id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"object\",\"type\":\"Role\",\"relationName\":\"RoleToRolePermission\"},{\"name\":\"permission\",\"kind\":\"object\",\"type\":\"Permission\",\"relationName\":\"PermissionToRolePermission\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: async () => require('./query_engine_bg.js'),
