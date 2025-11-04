@@ -3,9 +3,10 @@ import { RoleResolver } from '@/resolvers/RoleResolver'
 import { buildSchema } from 'type-graphql'
 import type { NonEmptyArray } from 'type-graphql'
 import type { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
-import { PrismaClient } from 'csci32-database'
+import { PrismaClient, PermissionName } from 'csci32-database'
 import { getBooleanEnvVar, getRequiredStringEnvVar } from '@/utils'
 import type { UserService } from '@/resolvers/UserService'
+import { extractTokenFromHeader, verifyToken } from '@/utils/auth'
 import mercurius from 'mercurius'
 import mercuriusLogging from 'mercurius-logging'
 const GRAPHQL_API_PATH = '/api/graphql'
@@ -18,6 +19,13 @@ export interface Context {
   reply: FastifyReply
   userService: UserService
   prisma: PrismaClient
+  user?: {
+    user_id: string
+    email: string
+    name?: string | undefined
+    role?: string | undefined
+    permissions?: string[] | undefined
+  }
 }
 
 export async function registerGraphQL(fastify: FastifyInstance) {
@@ -26,6 +34,39 @@ export async function registerGraphQL(fastify: FastifyInstance) {
 
   const schema = await buildSchema({
     resolvers,
+    authChecker: ({ context }, roles: string[]) => {
+      // Extract JWT token from Authorization header
+      const authHeader = context.request.headers.authorization
+      const token = extractTokenFromHeader(authHeader)
+
+      if (!token) {
+        return false // No token provided
+      }
+
+      try {
+        const payload = verifyToken(token)
+
+        // Add user info to context
+        context.user = {
+          user_id: payload.sub,
+          email: payload.email,
+          name: payload.name,
+          role: payload.role,
+          permissions: payload.permissions,
+        }
+
+        // Check if user has required permissions
+        if (roles.length === 0) {
+          return true // No specific permissions required
+        }
+
+        const userPermissions = payload.permissions || []
+        return roles.some((role) => userPermissions.includes(role))
+      } catch (error) {
+        console.error('Auth token verification failed:', error)
+        return false
+      }
+    },
   })
 
   console.log('Schema built successfully')
