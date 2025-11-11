@@ -7,22 +7,22 @@ export enum Variant {
 export function getVariantBackgroundStyles(variant: Variant) {
   switch (variant) {
     case Variant.PRIMARY:
-      return 'bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800'
+      return 'bg-white hover:bg-gray-50 active:bg-gray-100'
     case Variant.SECONDARY:
-      return 'bg-violet-600 hover:bg-violet-700 active:bg-violet-800'
+      return 'bg-white hover:bg-gray-50 active:bg-gray-100'
     case Variant.TERTIARY:
-      return 'bg-pink-600 hover:bg-pink-700 active:bg-pink-800'
+      return 'bg-white hover:bg-gray-50 active:bg-gray-100'
   }
 }
 
 export function getVariantOutlineStyles(variant: Variant) {
   switch (variant) {
     case Variant.PRIMARY:
-      return 'outline-emerald-600'
+      return 'outline-black'
     case Variant.SECONDARY:
-      return 'outline-violet-600'
+      return 'outline-black'
     case Variant.TERTIARY:
-      return 'outline-pink-600'
+      return 'outline-black'
   }
 }
 
@@ -33,11 +33,11 @@ export function getVariantStyles(variant: Variant) {
 export function getVariantBorderStyles(variant: Variant) {
   switch (variant) {
     case Variant.PRIMARY:
-      return 'border-2 border-emerald-600'
+      return 'border-2 border-black'
     case Variant.SECONDARY:
-      return 'border-2 border-violet-600'
+      return 'border-2 border-black'
     case Variant.TERTIARY:
-      return 'border-2 border-pink-600'
+      return 'border-2 border-black'
   }
 }
 
@@ -55,10 +55,10 @@ export function getVariantInputTextStyles(variant: Variant) {
 export function getVariantButtonTextStyles(variant: Variant) {
   switch (variant) {
     case Variant.PRIMARY:
-      return 'text-white'
+      return 'text-black'
     case Variant.SECONDARY:
-      return 'text-white'
+      return 'text-black'
     case Variant.TERTIARY:
-      return 'text-white'
+      return 'text-black'
   }
 }
