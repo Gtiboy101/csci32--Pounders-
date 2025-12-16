@@ -37,9 +37,16 @@ export function useAuth() {
 
   // Handle hydration and initialize user from localStorage
   useEffect(() => {
-    const storedUser = localStorage.getItem('authUser')
-    if (storedUser) {
-      setUser(JSON.parse(storedUser))
+    try {
+      const storedUser = localStorage.getItem('authUser')
+      if (storedUser && storedUser.trim() !== '') {
+        const parsedUser = JSON.parse(storedUser)
+        setUser(parsedUser)
+      }
+    } catch (error) {
+      // Clear invalid data from localStorage
+      localStorage.removeItem('authUser')
+      console.warn('Invalid auth data in localStorage, clearing it')
     }
     setIsHydrated(true)
   }, [])

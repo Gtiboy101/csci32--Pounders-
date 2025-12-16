@@ -28,6 +28,10 @@ model User {
   passwordHash  String?
   role_id        String?
   role          Role?    @relation(fields: [role_id], references: [role_id])
+
+  // Forum relations
+  forumPosts    ForumPost[]
+  forumReplies  ForumReply[]
 }
 
 model Role {
@@ -52,4 +56,31 @@ model RolePermission {
 
   @@id([role_id, permission_id]) // composite primary key
   @@unique([role_id, permission_id])
+}
+
+model ForumPost {
+  post_id     String   @id @default(cuid())
+  title       String
+  content     String
+  category    String
+  isSticky    Boolean  @default(false)
+  isLocked    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  author_id   String
+
+  author      User          @relation(fields: [author_id], references: [user_id])
+  replies     ForumReply[]
+}
+
+model ForumReply {
+  reply_id    String   @id @default(cuid())
+  content     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  author_id   String
+  post_id     String
+
+  author      User       @relation(fields: [author_id], references: [user_id])
+  post        ForumPost  @relation(fields: [post_id], references: [post_id])
 }

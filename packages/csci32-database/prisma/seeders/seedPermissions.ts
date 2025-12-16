@@ -1,7 +1,7 @@
 import type { PrismaClient } from '@prisma/client'
 
 export async function seedPermissions(prisma: PrismaClient) {
-  const permissions = ['UserRead', 'UserWrite'] as const
+  const permissions = ['UserRead', 'UserWrite', 'ForumRead', 'ForumWrite'] as const
   let count = 0
 
   for (const name of permissions) {

@@ -32,6 +32,6 @@ export class AuthPayload {
   @Field(() => String, { nullable: true })
   name?: string
 
-  @Field(() => String)
-  email!: string
+  @Field(() => String, { nullable: true })
+  email?: string
 }

@@ -12,7 +12,7 @@ function generateToken(userId: string): string {
 export function setupMockAuth(app: any) {
   // Health check endpoint
   app.get('/health', (req: any, res: any) => {
-    res.json({ status: 'ok', service: 'pounders-automotive-backend' })
+    res.json({ status: 'ok', service: 'bullnbrains-backend' })
   })
 
   // GraphQL endpoint mock for authentication

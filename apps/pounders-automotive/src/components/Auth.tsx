@@ -26,10 +26,10 @@ export default function Auth() {
   const onSubmit = async (data: AuthFormInputs) => {
     if (isSignUpMode) {
       const result = await signUp(data)
-      console.log('Signed up:', result)
+      // Account created successfully
     } else {
       const result = await signIn({ email: data.email, password: data.password })
-      console.log('Signed in:', result)
+      // Signed in successfully
     }
   }
 

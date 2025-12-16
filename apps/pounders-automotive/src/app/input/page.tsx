@@ -25,7 +25,7 @@ export default function InputPage() {
 
   return (
     <div className="p-24">
-      <h1 className="text-3xl font-bold mb-8">Pounders Automotive Registration</h1>
+      <h1 className="text-3xl font-bold mb-8">BullnBrains Registration</h1>
 
       {/* Wrapper div with flex, gap, and flex-wrap for responsive layout */}
       <div className="flex gap-6 flex-wrap">

@@ -1,4 +1,4 @@
-import { UserService } from '@/resolvers/UserService'
+import { UserService } from '@/services/UserService'
 import type { FastifyInstance } from 'fastify'
 import fp from 'fastify-plugin'
 import { PRISMA_FASTIFY_PLUGIN_NAME } from './prisma'
