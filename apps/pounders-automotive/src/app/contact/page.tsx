@@ -42,7 +42,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-blue-50">
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="relative bg-blue-600 rounded-2xl p-8 mb-8 text-white shadow-xl overflow-hidden">
@@ -274,6 +274,129 @@ export default function ContactPage() {
               </h3>
               <p className="text-sm text-red-700 mb-3">24/7 emergency roadside assistance available</p>
               <p className="text-lg font-bold text-red-800">(555) 999-HELP</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Enhanced Premium Footer */}
+      <div
+        style={{
+          position: 'relative',
+          background: 'linear-gradient(to right, #0f172a, #1e293b, #0f172a)',
+          color: 'white',
+          overflow: 'hidden',
+          marginTop: '64px',
+        }}
+      >
+        <div className="relative max-w-7xl mx-auto px-6 py-20">
+          {/* Main Contact Section */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-blue-500/20 text-blue-300 px-6 py-3 rounded-full text-sm font-medium mb-6 backdrop-blur-sm border border-blue-400/30">
+              <span className="mr-2">✨</span>
+              Ready to Connect?
+            </div>
+            <h2
+              style={{
+                fontSize: '3xl',
+                lineHeight: '1',
+                fontWeight: 'bold',
+                marginBottom: '24px',
+                background: 'linear-gradient(to right, #ffffff, #dbeafe, #e9d5ff)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+              className="lg:text-5xl"
+            >
+              Get In Touch
+            </h2>
+            <p className="text-slate-300 text-xl max-w-3xl mx-auto leading-relaxed">
+              Have questions, suggestions, or want to collaborate? We're here to help you on your automotive journey!
+            </p>
+          </div>
+
+          {/* Contact Cards Grid */}
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '48px',
+              marginBottom: '64px',
+              maxWidth: '900px',
+              margin: '0 auto 64px',
+            }}
+          >
+            <div style={{ textAlign: 'center' }}>
+              <span style={{ fontSize: '24px', marginBottom: '8px', display: 'block' }}>📧</span>
+              <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: 'white', margin: '0 0 8px 0' }}>Email Us</h3>
+              <p style={{ color: '#93c5fd', fontSize: '16px', fontWeight: '500', margin: '0 0 4px 0' }}>
+                hello@bullnbrains.com
+              </p>
+              <p style={{ color: '#94a3b8', fontSize: '14px', margin: '0 0 8px 0' }}>We respond within 24 hours</p>
+              <span style={{ color: '#4ade80', fontSize: '12px', fontWeight: '500' }}>✓ Professional Support</span>
+            </div>
+
+            <div style={{ textAlign: 'center' }}>
+              <span style={{ fontSize: '24px', marginBottom: '8px', display: 'block' }}>💬</span>
+              <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: 'white', margin: '0 0 8px 0' }}>Community</h3>
+              <Link
+                href="/forum"
+                style={{
+                  color: '#c4b5fd',
+                  fontSize: '16px',
+                  fontWeight: '500',
+                  textDecoration: 'underline',
+                  display: 'block',
+                  margin: '0 0 4px 0',
+                }}
+                className="hover:text-purple-200 transition-colors"
+              >
+                Join Our Forum
+              </Link>
+              <p style={{ color: '#94a3b8', fontSize: '14px', margin: '0 0 8px 0' }}>10,000+ active members</p>
+              <span style={{ color: '#a78bfa', fontSize: '12px', fontWeight: '500' }}>✓ Expert Discussions</span>
+            </div>
+
+            <div style={{ textAlign: 'center' }}>
+              <span style={{ fontSize: '24px', marginBottom: '8px', display: 'block' }}>📱</span>
+              <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: 'white', margin: '0 0 8px 0' }}>Follow Us</h3>
+              <p style={{ color: '#6ee7b7', fontSize: '16px', fontWeight: '500', margin: '0 0 4px 0' }}>@BullnBrains</p>
+              <p style={{ color: '#94a3b8', fontSize: '14px', margin: '0 0 8px 0' }}>Daily automotive insights</p>
+              <span style={{ color: '#4ade80', fontSize: '12px', fontWeight: '500' }}>✓ Latest Updates</span>
+            </div>
+          </div>
+
+          {/* Additional Footer Info */}
+          <div className="border-t border-white/10 pt-12">
+            <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
+              <div className="text-center lg:text-left">
+                <h3 className="text-2xl font-bold text-white mb-2">BullnBrains</h3>
+                <p className="text-slate-400 max-w-md">
+                  Empowering car enthusiasts with knowledge, community, and expert guidance since 2024.
+                </p>
+              </div>
+              <div className="flex flex-wrap justify-center gap-6 text-slate-400">
+                <a href="#" className="hover:text-white transition-colors text-sm font-medium">
+                  Privacy Policy
+                </a>
+                <a href="#" className="hover:text-white transition-colors text-sm font-medium">
+                  Terms of Service
+                </a>
+                <a href="#" className="hover:text-white transition-colors text-sm font-medium">
+                  Support
+                </a>
+                <a href="#" className="hover:text-white transition-colors text-sm font-medium">
+                  Blog
+                </a>
+              </div>
+            </div>
+
+            <div className="mt-8 pt-8 border-t border-white/10 text-center">
+              <p className="text-slate-500 text-sm">
+                © 2024 BullnBrains. All rights reserved. | Made with ❤️ for car enthusiasts worldwide.
+              </p>
             </div>
           </div>
         </div>

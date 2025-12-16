@@ -93,7 +93,7 @@ export default function BuildsPage() {
             backdropFilter: 'blur(10px)',
           }}
         >
-          ← Back to Welcome
+          Back to Home
         </button>
 
         <h1
@@ -313,6 +313,107 @@ export default function BuildsPage() {
         >
           Start Your Custom Build
         </button>
+      </div>
+
+      {/* Footer Section */}
+      <div style={{ backgroundColor: '#1e293b', color: 'white', padding: '80px 24px 40px' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+          {/* Ready to Connect Header */}
+          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <div style={{ fontSize: '48px', marginBottom: '16px' }}>✨</div>
+            <h2 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '8px' }}>Ready to Connect?</h2>
+            <p style={{ fontSize: '20px', color: '#94a3b8' }}>Get In Touch</p>
+            <p style={{ color: '#94a3b8', marginTop: '8px' }}>
+              Have questions, suggestions, or want to collaborate? We're here to help you on your automotive journey!
+            </p>
+          </div>
+
+          {/* Three Column Section */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: '32px',
+              marginBottom: '60px',
+            }}
+          >
+            {/* Email Us */}
+            <div style={{ textAlign: 'center', padding: '24px', backgroundColor: '#334155', borderRadius: '12px' }}>
+              <div style={{ fontSize: '36px', marginBottom: '16px' }}>📧</div>
+              <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '12px' }}>Email Us</h3>
+              <p style={{ color: '#60a5fa', fontSize: '18px', marginBottom: '8px' }}>hello@bullnbrains.com</p>
+              <p style={{ color: '#94a3b8', fontSize: '14px', marginBottom: '12px' }}>We respond within 24 hours</p>
+              <p style={{ color: '#10b981', fontSize: '14px' }}>✓ Professional Support</p>
+            </div>
+
+            {/* Community */}
+            <div style={{ textAlign: 'center', padding: '24px', backgroundColor: '#334155', borderRadius: '12px' }}>
+              <div style={{ fontSize: '36px', marginBottom: '16px' }}>💬</div>
+              <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '12px' }}>Community</h3>
+              <p style={{ fontSize: '18px', marginBottom: '8px' }}>Join Our Forum</p>
+              <p style={{ color: '#94a3b8', fontSize: '14px', marginBottom: '12px' }}>10,000+ active members</p>
+              <p style={{ color: '#10b981', fontSize: '14px' }}>✓ Expert Discussions</p>
+            </div>
+
+            {/* Follow Us */}
+            <div style={{ textAlign: 'center', padding: '24px', backgroundColor: '#334155', borderRadius: '12px' }}>
+              <div style={{ fontSize: '36px', marginBottom: '16px' }}>📱</div>
+              <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '12px' }}>Follow Us</h3>
+              <p style={{ fontSize: '18px', marginBottom: '8px' }}>@BullnBrains</p>
+              <p style={{ color: '#94a3b8', fontSize: '14px', marginBottom: '12px' }}>Daily automotive insights</p>
+              <p style={{ color: '#10b981', fontSize: '14px' }}>✓ Latest Updates</p>
+            </div>
+          </div>
+
+          {/* Bottom Footer */}
+          <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '48px' }}>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '32px',
+                alignItems: 'center',
+                textAlign: 'center',
+              }}
+            >
+              <div>
+                <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '8px' }}>BullnBrains</h3>
+                <p style={{ color: '#94a3b8', maxWidth: '600px' }}>
+                  Empowering car enthusiasts with knowledge, community, and expert guidance since 2024.
+                </p>
+              </div>
+              <div
+                style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '24px', color: '#94a3b8' }}
+              >
+                <a href="#" style={{ fontSize: '14px', fontWeight: '500', color: '#94a3b8' }}>
+                  Privacy Policy
+                </a>
+                <a href="#" style={{ fontSize: '14px', fontWeight: '500', color: '#94a3b8' }}>
+                  Terms of Service
+                </a>
+                <a href="#" style={{ fontSize: '14px', fontWeight: '500', color: '#94a3b8' }}>
+                  Support
+                </a>
+                <a href="#" style={{ fontSize: '14px', fontWeight: '500', color: '#94a3b8' }}>
+                  Blog
+                </a>
+              </div>
+            </div>
+
+            <div
+              style={{
+                marginTop: '32px',
+                paddingTop: '32px',
+                borderTop: '1px solid rgba(255,255,255,0.1)',
+                textAlign: 'center',
+              }}
+            >
+              <p style={{ color: '#64748b', fontSize: '14px' }}>
+                © 2024 BullnBrains. All rights reserved. | Made with ❤️ for car enthusiasts worldwide.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

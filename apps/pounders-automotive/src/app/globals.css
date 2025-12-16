@@ -1,9 +1,11 @@
-@import 'tailwindcss';
-@import '@repo/ui/styles.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
 }
+
 header {
   text-align: left;
   color: black;
@@ -15,12 +17,6 @@ header {
   align-items: center;
   justify-content: space-between;
   display: flex;
-}
-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: black;
 }
 .header-button {
   margin-left: auto;

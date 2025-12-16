@@ -47,7 +47,7 @@ export default function ForumPage() {
               <h2 className="text-2xl font-bold text-yellow-800 mb-2">Example Forum - Demo Only</h2>
               <p className="text-yellow-700 leading-relaxed mb-3">
                 This is a demonstration of what the forum could look like. The posts shown below are examples only to
-                showcase the design and potential functionality.
+                showcase the design and potential functionality. The text style is also a mockup.
               </p>
               <p className="text-yellow-600 text-sm font-medium">
                 🚧 Forum functionality is not yet implemented - this is a visual preview only
@@ -308,6 +308,83 @@ export default function ForumPage() {
                   <span className="text-purple-700 font-medium">Community support</span>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer Section */}
+      <div className="bg-slate-800 text-white py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Ready to Connect Header */}
+          <div className="text-center mb-16">
+            <div className="text-5xl mb-4">✨</div>
+            <h2 className="text-4xl font-bold mb-2">Ready to Connect?</h2>
+            <p className="text-xl text-slate-400">Get In Touch</p>
+            <p className="text-slate-400 mt-2">
+              Have questions, suggestions, or want to collaborate? We're here to help you on your automotive journey!
+            </p>
+          </div>
+
+          {/* Three Column Section */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {/* Email Us */}
+            <div className="text-center p-6 bg-slate-700 rounded-xl">
+              <div className="text-4xl mb-4">📧</div>
+              <h3 className="text-xl font-semibold mb-3">Email Us</h3>
+              <p className="text-blue-400 text-lg mb-2">hello@bullnbrains.com</p>
+              <p className="text-slate-400 text-sm mb-3">We respond within 24 hours</p>
+              <p className="text-green-400 text-sm">✓ Professional Support</p>
+            </div>
+
+            {/* Community */}
+            <div className="text-center p-6 bg-slate-700 rounded-xl">
+              <div className="text-4xl mb-4">💬</div>
+              <h3 className="text-xl font-semibold mb-3">Community</h3>
+              <p className="text-lg mb-2">Join Our Forum</p>
+              <p className="text-slate-400 text-sm mb-3">10,000+ active members</p>
+              <p className="text-green-400 text-sm">✓ Expert Discussions</p>
+            </div>
+
+            {/* Follow Us */}
+            <div className="text-center p-6 bg-slate-700 rounded-xl">
+              <div className="text-4xl mb-4">📱</div>
+              <h3 className="text-xl font-semibold mb-3">Follow Us</h3>
+              <p className="text-lg mb-2">@BullnBrains</p>
+              <p className="text-slate-400 text-sm mb-3">Daily automotive insights</p>
+              <p className="text-green-400 text-sm">✓ Latest Updates</p>
+            </div>
+          </div>
+
+          {/* Bottom Footer */}
+          <div className="border-t border-slate-700 pt-12">
+            <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
+              <div className="text-center lg:text-left">
+                <h3 className="text-2xl font-bold mb-2">BullnBrains</h3>
+                <p className="text-slate-400 max-w-md">
+                  Empowering car enthusiasts with knowledge, community, and expert guidance since 2024.
+                </p>
+              </div>
+              <div className="flex flex-wrap justify-center gap-6 text-slate-400">
+                <a href="#" className="hover:text-white transition-colors text-sm font-medium">
+                  Privacy Policy
+                </a>
+                <a href="#" className="hover:text-white transition-colors text-sm font-medium">
+                  Terms of Service
+                </a>
+                <a href="#" className="hover:text-white transition-colors text-sm font-medium">
+                  Support
+                </a>
+                <a href="#" className="hover:text-white transition-colors text-sm font-medium">
+                  Blog
+                </a>
+              </div>
+            </div>
+
+            <div className="mt-8 pt-8 border-t border-slate-700 text-center">
+              <p className="text-slate-500 text-sm">
+                © 2024 BullnBrains. All rights reserved. | Made with ❤️ for car enthusiasts worldwide.
+              </p>
             </div>
           </div>
         </div>
